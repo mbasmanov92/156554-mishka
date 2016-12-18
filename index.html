@@ -2,28 +2,38 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML Academy: Мишка</title>
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <header class="main-header">
       <div class="main-header__logo">
-        <img src="http://placehold.it/86x35" width="86" height="35" alt="mishka">
+        <img src="/img/logo-mobile.svg" width="86" height="35" alt="mishka">
       </div>
-      <button class="dropdown"></button>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="catalog.html">Каталог товаров</a>
+      <nav class="main-nav  main-nav--closed  main-nav--no-js">
+        <button class="main-nav__dropdown" type="button"></button>
+        <ul class="main-nav__list">
+          <li class="main-nav__item  main-nav__item--catalog">
+            <a class="main-nav__link" href="catalog.html">Каталог товаров</a>
           </li>
-          <li class="nav__item">
-            <a class="nav__link" href="form.html">Вязание на заказ</a>
+          <li class="main-nav__item  main-nav__item--order">
+            <a class="main-nav__link" href="form.html">Вязание на заказ</a>
           </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#">Поиск по сайту</a>
+          <li class="main-nav__item  main-nav__item--search">
+            <a class="main-nav__link" href="#">Поиск по сайту</a>
           </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#">Корзина: пока пуста</a>
+          <li class="main-nav__item  main-nav__item--cart">
+            <a class="main-nav__link" href="#">Корзина: пока пуста</a>
+          </li>
+          <li class="main-nav__item  main-nav--new">
+            <a class="main-nav__link" href="#">Новые поступления</a>
+          </li>
+          <li class="main-nav__item  main-nav--sales">
+            <a class="main-nav__link" href="#">Распродажа</a>
+          </li>
+          <li class="main-nav__item  main-nav__item--info">
+            Бесплатная доставка по России
           </li>
         </ul>
       </nav>
@@ -31,8 +41,8 @@
     <main>
       <div class="introduction">
         <h1 class="introduction__title">Милые штуки ручной работы для дома</h1>
-        <a class="product-category  product-category--interior" href="#">Предметы интерьера</a>
-        <a class="product-category  product-category--toys" href="#">Детские игрушки</a>
+        <a class="product-category  product-category--interior" href="#">Предметы<br>интерьера</a>
+        <a class="product-category  product-category--toys" href="#">Детские<br>игрушки</a>
       </div>
       <div class="product">
         <h2 class="product__title">Вязаные корзинки</h2>
@@ -52,12 +62,12 @@
       <div class="about">
         <h2 class="about__title">Коротко о нас:</h2>
         <ul class="about__list">
-          <li class="about__list-item">Экологически чистые материалы</li>
-          <li class="about__list-item">Скандинавский стиль по российской цене</li>
-          <li class="about__list-item">Увеличивает лайки на фотографиях</li>
-          <li class="about__list-item">Связано вручную с любовью и умилением</li>
-          <li class="about__list-item">Поддержка отечественного производителя</li>
-          <li class="about__list-item">Поствляется в подарочной упаковке</li>
+          <li class="about__list-item  about__list-item--feature-1">Экологически чистые материалы</li>
+          <li class="about__list-item  about__list-item--feature-2">Скандинавский стиль по российской цене</li>
+          <li class="about__list-item  about__list-item--feature-3">Увеличивает лайки на фотографиях</li>
+          <li class="about__list-item  about__list-item--feature-4">Связано вручную с любовью и умилением</li>
+          <li class="about__list-item  about__list-item--feature-5">Поддержка отечественного производителя</li>
+          <li class="about__list-item  about__list-item--feature-6">Поствляется в подарочной упаковке</li>
         </ul>
       </div>
       <div class="comments">
@@ -85,15 +95,15 @@
         <div class="contacts__address">
           <span class="contacts__address-left">адрес: </span><address class="contacts__address-right">г. Санк-Петербург, улю Большая Конюшенная, д. 19/8, офис 101</address>
         </div>
+        <div class="index-map"></div>
+        <a href="#" class="btn  btn--e-mail">Напишите нам</a>
       </div>
-      <div class="index-map"></div>
-      <a href="#" class="btn  btn--e-mail">Напишите нам</a>
     </main>
     <footer class="main-footer">
       <div class="socials">
-        <a class="btn  btn--soc-inst" href="#">YouTube</a>
-        <a class="btn  btn--soc-fb" href="#">Facebook</a>
-        <a class="btn  btn--soc-tw" href="#">Twitter</a>
+        <a class="btn  btn__soc  btn__soc--inst" href="#">YouTube</a>
+        <a class="btn  btn__soc  btn__soc--fb" href="#">Facebook</a>
+        <a class="btn  btn__soc  btn__soc--tw" href="#">Twitter</a>
       </div>
       <div class="copyright">
         <h2 class="copyright__title">Разработано</h2>
@@ -110,5 +120,21 @@
       </ul>
       <a href="#" class="btn  btn--modal-order">Добавить</a>
     </div>
+    <script>
+    var navMain = document.querySelector('.main-nav');
+    var navDropdown = document.querySelector('.main-nav__dropdown');
+
+    navMain.classList.remove('main-nav--no-js');
+
+    navDropdown.addEventListener('click', function() {
+      if (navMain.classList.contains('main-nav--closed')) {
+        navMain.classList.remove('main-nav--closed');
+        navMain.classList.add('main-nav--opened');
+      } else {
+        navMain.classList.add('main-nav--closed');
+        navMain.classList.remove('main-nav--opened');
+      }
+    });
+  </script>
   </body>
 </html>
