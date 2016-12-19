@@ -7,36 +7,40 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-    <header class="main-header">
+    <header class="main-header  main-header--closed  main-header--no-js">
       <div class="main-header__logo">
-        <img src="/img/logo-mobile.svg" width="86" height="35" alt="mishka">
+        <a href="#">
+          <img class="main-header__logo-mob" src="/img/logo-mobile.svg" width="86" height="35" alt="mishka">
+          <img class="main-header__logo-tab" src="/img/logo-mobile.svg" width="113" height="46" alt="mishka">
+          <img class="main-header__logo-desk" src="/img/logo-mobile.svg" width="149" height="72" alt="mishka">
+        </a>
+        <button class="main-header__dropdown" type="button"></button>
       </div>
-      <nav class="main-nav  main-nav--closed  main-nav--no-js">
-        <button class="main-nav__dropdown" type="button"></button>
-        <ul class="main-nav__list">
-          <li class="main-nav__item  main-nav__item--catalog">
-            <a class="main-nav__link" href="catalog.html">Каталог товаров</a>
-          </li>
-          <li class="main-nav__item  main-nav__item--order">
-            <a class="main-nav__link" href="form.html">Вязание на заказ</a>
-          </li>
-          <li class="main-nav__item  main-nav__item--search">
-            <a class="main-nav__link" href="#">Поиск по сайту</a>
-          </li>
-          <li class="main-nav__item  main-nav__item--cart">
-            <a class="main-nav__link" href="#">Корзина: пока пуста</a>
-          </li>
-          <li class="main-nav__item  main-nav--new">
-            <a class="main-nav__link" href="#">Новые поступления</a>
-          </li>
-          <li class="main-nav__item  main-nav--sales">
-            <a class="main-nav__link" href="#">Распродажа</a>
-          </li>
-          <li class="main-nav__item  main-nav__item--info">
-            Бесплатная доставка по России
-          </li>
-        </ul>
-      </nav>
+      <ul class="main-header__list-1">
+        <li class="main-header__item  main-header__item--catalog">
+          <a class="main-header__link" href="catalog.html">Каталог товаров</a>
+        </li>
+        <li class="main-header__item  main-header__item--order">
+          <a class="main-header__link" href="form.html">Вязание на заказ</a>
+        </li>
+      </ul>
+      <ul class="main-header__list-2">
+        <li class="main-header__item  main-header__item--search">
+          <a class="main-header__link" href="#">Поиск по сайту</a>
+        </li>
+        <li class="main-header__item  main-header__item--cart">
+          <a class="main-header__link" href="#">Корзина: пока пуста</a>
+        </li>
+      </ul>
+      <ul class="main-header__list-3">
+        <li class="main-header__item  main-header--new">
+          <a class="main-header__link" href="#">Новые поступления</a>
+        </li>
+        <li class="main-header__item  main-header--sales">
+          <a class="main-header__link" href="#">Распродажа</a>
+        </li>
+      </ul>
+      <div class="main-header__info">Бесплатная доставка по России</div>
     </header>
     <main>
       <div class="introduction">
@@ -121,18 +125,18 @@
       <a href="#" class="btn  btn--modal-order">Добавить</a>
     </div>
     <script>
-    var navMain = document.querySelector('.main-nav');
-    var navDropdown = document.querySelector('.main-nav__dropdown');
+    var headerMain = document.querySelector('.main-header');
+    var headerDropdown = document.querySelector('.main-header__dropdown');
 
-    navMain.classList.remove('main-nav--no-js');
+    headerMain.classList.remove('main-header--no-js');
 
-    navDropdown.addEventListener('click', function() {
-      if (navMain.classList.contains('main-nav--closed')) {
-        navMain.classList.remove('main-nav--closed');
-        navMain.classList.add('main-nav--opened');
+    headerDropdown.addEventListener('click', function() {
+      if (headerMain.classList.contains('main-header--closed')) {
+        headerMain.classList.remove('main-header--closed');
+        headerMain.classList.add('main-header--opened');
       } else {
-        navMain.classList.add('main-nav--closed');
-        navMain.classList.remove('main-nav--opened');
+        headerMain.classList.add('main-header--closed');
+        headerMain.classList.remove('main-header--opened');
       }
     });
   </script>
