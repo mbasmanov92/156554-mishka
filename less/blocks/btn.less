@@ -25,16 +25,15 @@
 }
 
 .btn--control-prev {
-  display: inline-block;
-  width: 125px;
+  width: 50%;
   min-height: 50px;
   border: 1px solid #ececec;
+  border-right: none;
   background: url('../img/icon-left-arrow.svg') no-repeat center;
 }
 
 .btn--control-next {
-  display: inline-block;
-  width: 125px;
+  width: 50%;
   min-height: 50px;
   border: 1px solid #ececec;
   background: url('../img/icon-right-arrow.svg') no-repeat center;
@@ -83,4 +82,30 @@
 
 .btn__soc--tw {
   background: url('../img/icon-twitter.svg') no-repeat 50% 50%;
+}
+
+@media only screen and (min-width:768px) {
+  .btn--product-order {
+    box-sizing: border-box;
+    width: 290px;
+    margin-left: 0;
+    margin-right: 60px;
+  }
+
+  .btn--make-comment {
+    order: 2;
+    align-self: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+  }
+
+  .btn--control-prev {
+    border: none;
+  }
+
+  .btn--control-next {
+    border: none;
+  }
+
 }
