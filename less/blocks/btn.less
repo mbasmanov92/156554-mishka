@@ -50,10 +50,12 @@
 .btn--e-mail {
   margin-top: 40px;
   margin-bottom: 40px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 45px;
+  padding-right: 45px;
   text-align: center;
   text-transform: uppercase;
   border: 2px solid #444;
@@ -62,13 +64,10 @@
 .btn__soc {
   font-size: 0;
 
-  display: inline-block;
-
   width: 46px;
   height: 48px;
   margin: 0 2px;
 
-  vertical-align: middle;
   text-decoration: none;
 }
 
@@ -107,5 +106,20 @@
   .btn--control-next {
     border: none;
   }
+}
 
+@media only screen and (min-width:1150px) {
+  .btn--product-order {
+    order: 6;
+    margin-left: 165px;
+  }
+
+  .btn--e-mail {
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    width: 230px;
+    margin-right: 0;
+    margin-left: 225px;
+  }
 }
