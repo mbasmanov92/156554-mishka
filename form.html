@@ -2,31 +2,45 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML Academy: Мишка</title>
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-    <header class="main-header">
+    <header class="main-header  main-header--closed  main-header--no-js">
       <div class="main-header__logo">
-        <img src="http://placehold.it/86x35" width="86" height="35" alt="mishka">
+        <a href="#">
+          <img class="main-header__logo-mob" src="/img/logo-mobile.svg" width="86" height="35" alt="mishka">
+          <img class="main-header__logo-tab" src="/img/logo-mobile.svg" width="113" height="46" alt="mishka">
+          <img class="main-header__logo-desk" src="/img/logo-mobile.svg" width="149" height="72" alt="mishka">
+        </a>
+        <button class="main-header__dropdown" type="button"></button>
       </div>
-      <button class="dropdown"></button>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="catalog.html">Каталог товаров</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#">Вязание на заказ</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#">Поиск по сайту</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="#">Корзина: пока пуста</a>
-          </li>
-        </ul>
-      </nav>
+      <ul class="main-header__list-1">
+        <li class="main-header__item  main-header__item--catalog">
+          <a class="main-header__link" href="catalog.html">Каталог товаров</a>
+        </li>
+        <li class="main-header__item  main-header__item--order">
+          <a class="main-header__link" href="form.html">Вязание на заказ</a>
+        </li>
+      </ul>
+      <ul class="main-header__list-2">
+        <li class="main-header__item  main-header__item--search">
+          <a class="main-header__link" href="#">Поиск по сайту</a>
+        </li>
+        <li class="main-header__item  main-header__item--cart">
+          <a class="main-header__link" href="#">Корзина: пока пуста</a>
+        </li>
+      </ul>
+      <ul class="main-header__list-3">
+        <li class="main-header__item  main-header--new">
+          <a class="main-header__link" href="#">Новые поступления</a>
+        </li>
+        <li class="main-header__item  main-header--sales">
+          <a class="main-header__link" href="#">Распродажа</a>
+        </li>
+      </ul>
+      <div class="main-header__info">Бесплатная доставка по России</div>
     </header>
     <main>
       <form class="form" action="#" method="post">
@@ -82,14 +96,23 @@
       </form>
     </main>
     <footer class="main-footer">
+      <div class="main-footer__logo">
+        <a href="#">
+          <img class="main-footer__logo-tab" src="/img/logo-mobile.svg" width="102" height="34" alt="mishka">
+        </a>
+      </div>
       <div class="socials">
-        <a class="btn  btn--soc-inst" href="#">YouTube</a>
-        <a class="btn  btn--soc-fb" href="#">Facebook</a>
-        <a class="btn  btn--soc-tw" href="#">Twitter</a>
+        <a class="btn  btn__soc  btn__soc--inst" href="#">YouTube</a>
+        <a class="btn  btn__soc  btn__soc--fb" href="#">Facebook</a>
+        <a class="btn  btn__soc  btn__soc--tw" href="#">Twitter</a>
       </div>
       <div class="copyright">
         <h2 class="copyright__title">Разработано</h2>
-        <span class="copyright__logo"></span>
+        <div class="copyright__logo">
+        <a href="#">
+          <img class="copyright__logo-img" src="/img/htmlacademy.svg" width="27" height="34" alt="mishka">
+        </a>
+      </div>
       </div>
     </footer>
     <div class="modal-order">
@@ -102,5 +125,21 @@
       </ul>
       <a href="#" class="btn  btn--modal-order">Добавить</a>
     </div>
+    <script>
+    var headerMain = document.querySelector('.main-header');
+    var headerDropdown = document.querySelector('.main-header__dropdown');
+
+    headerMain.classList.remove('main-header--no-js');
+
+    headerDropdown.addEventListener('click', function() {
+      if (headerMain.classList.contains('main-header--closed')) {
+        headerMain.classList.remove('main-header--closed');
+        headerMain.classList.add('main-header--opened');
+      } else {
+        headerMain.classList.add('main-header--closed');
+        headerMain.classList.remove('main-header--opened');
+      }
+    });
+  </script>
   </body>
 </html>
